@@ -40,9 +40,9 @@ if you want persistance:
 ## Create folder for persistant data
 `mkdir -p /var/lib/cluster_datas/spark_cluster/data
 mkdir -p /var/lib/cluster_datas/spark_cluster/conf
-mkdir -p /var/lib/cluster_datas/spark_cluster/logs
+mkdir -p /var/lib/cluster_datas/spark_cluster/logs`
 
-mkdir -p /var/lib/cluster_datas/solr_cluster/data
+`mkdir -p /var/lib/cluster_datas/solr_cluster/data
 mkdir -p /var/lib/cluster_datas/solr_cluster/conf
 mkdir -p /var/lib/cluster_datas/solr_cluster/logs`
 
