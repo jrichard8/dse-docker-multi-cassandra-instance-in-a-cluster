@@ -9,10 +9,10 @@ Docker conf to start multi cluster instance
 * so the resulting file is named dse-bin.tar.gz (that way the docker file itself remains version independent).
 
 ## 4 - Build image
-to force static IP
 * sudo docker build . -t <image_name>
 
 ## 5 - create a docker network
+to force static IP
 * sudo docker network create --subnet=172.18.0.0/16 dockernet
 
 ## 6 - Run clusters:
