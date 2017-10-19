@@ -18,10 +18,10 @@ to force static IP
 ## 6 - Run clusters:
 
 * Run analytics instance (spark)
-`sudo docker run --net dockernet --ip 172.18.0.2 -e CLUSTER_NAME="Cluster_Spark" -e SPARK_LOCAL_IP="172.18.0.2" -e RPC_ADDRESS="172.18.0.2" -e LISTEN_ADDRESS="172.18.0.2" -e SEEDS="172.18.0.2,172.18.0.3" trax-dse-image  -k`
+`sudo docker run --net dockernet --ip 172.18.0.2 -e CLUSTER_NAME="Cluster_Spark" -e SPARK_LOCAL_IP="172.18.0.2" -e RPC_ADDRESS="172.18.0.2" -e LISTEN_ADDRESS="172.18.0.2" -e SEEDS="172.18.0.2,172.18.0.3" <image_name>  -k`
 
 * Run Search instance (solr)
-`sudo docker run --net dockernet --ip 172.18.0.3 -e CLUSTER_NAME="Cluster_Solr" -e RPC_ADDRESS="172.18.0.3" -e LISTEN_ADDRESS="172.18.0.3" -e SEEDS="172.18.0.2,172.18.0.3" trax-dse-image  -s`
+`sudo docker run --net dockernet --ip 172.18.0.3 -e CLUSTER_NAME="Cluster_Solr" -e RPC_ADDRESS="172.18.0.3" -e LISTEN_ADDRESS="172.18.0.3" -e SEEDS="172.18.0.2,172.18.0.3" <image_name>  -s`
 
 ## Create KEYSPACE with replication:
 
