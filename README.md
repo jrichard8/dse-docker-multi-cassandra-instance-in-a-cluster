@@ -31,3 +31,43 @@ to force static IP
 If all is ok a keyspace should be created on other docker
 
 ### Have fun
+
+
+**Remember that docker doesn't persist data.**
+
+if you want persistance:
+
+## Create folder for persistant data
+`mkdir -p /var/lib/cluster_datas/spark_cluster/data
+mkdir -p /var/lib/cluster_datas/spark_cluster/conf
+mkdir -p /var/lib/cluster_datas/spark_cluster/logs
+
+mkdir -p /var/lib/cluster_datas/solr_cluster/data
+mkdir -p /var/lib/cluster_datas/solr_cluster/conf
+mkdir -p /var/lib/cluster_datas/solr_cluster/logs`
+
+## Run docker on specific adress
+* Run analytics instance (spark) with specify volume
+
+`sudo docker run --net dockernet --ip 172.18.0.2 -e CLUSTER_NAME="Cluster_Spark" \
+ -e SPARK_LOCAL_IP="172.18.0.2" \
+ -e RPC_ADDRESS="172.18.0.2" \
+ -e LISTEN_ADDRESS="172.18.0.2" \
+ -e SEEDS="172.18.0.2,172.18.0.3" \
+ -v /var/lib/cluster_datas/spark_cluster/data:/data \
+ -v /var/lib/cluster_datas/spark_cluster/conf:/conf \
+ -v /var/lib/cluster_datas/spark_cluster/logs:/logs \
+ trax-dse-image  -k`
+ 
+ * Run Search instance (solr) with specify volume
+ 
+ `sudo docker run --net dockernet --ip 172.18.0.3 -e CLUSTER_NAME="Cluster_Solr" \
+ -e RPC_ADDRESS="172.18.0.3" \
+ -e LISTEN_ADDRESS="172.18.0.3" \
+ -e SEEDS="172.18.0.2,172.18.0.3" \
+ -v /var/lib/cluster_datas/solr_cluster/data:/data \
+ -v /var/lib/cluster_datas/solr_cluster/conf:/conf \
+ -v /var/lib/cluster_datas/solr_cluster/logs:/logs \
+  trax-dse-image  -s`
+
+
