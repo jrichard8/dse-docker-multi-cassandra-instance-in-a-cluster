@@ -26,7 +26,7 @@ to force static IP
 ## Create KEYSPACE with replication:
 
 * `cqlsh 172..18.0.2`
-* `CREATE KEYSPACE <yourekeyspace> WITH REPLICATION = { 'class' :'NetworkTopologyStrategy'[, 'Analytics' : 0, 'Solr' : 0};`
+* `CREATE KEYSPACE <yourekeyspace> WITH REPLICATION = { 'class' :'NetworkTopologyStrategy', 'Analytics' : 0, 'Solr' : 0};`
 
 If all is ok a keyspace should be created on other docker
 
